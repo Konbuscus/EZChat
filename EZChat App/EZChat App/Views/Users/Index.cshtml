@@ -1,0 +1,123 @@
+﻿@model EZChat_App.Models.Users
+
+@section head{
+
+
+
+}
+
+<div id="update" class="container">
+    <h1>Edition du profil</h1>
+    <hr>
+    <div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+            <div class="text-center">
+                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                <h6>Changez d'image</h6>
+
+                <input name="PictureProfile" class="form-control" value="" type="file">
+            </div>
+        </div>
+
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+   @*<div class="alert alert-info alert-dismissable">
+        <a class="panel-close close" data-dismiss="alert">×</a>
+        <i class="fa fa-coffee"></i>
+        This is an <strong>.alert</strong>. Use this to show important messages to the user.
+    </div>*@
+            <h3>Informations personnelles</h3>
+            <form class="form-horizontal" role="form">
+                @Html.HiddenFor(model => model._id)
+
+                <div class="form-group">
+                    <label for="FirstName" class="col-lg-3 control-label">Prénom:</label>
+                    <div class="col-lg-8">
+                        <input name="FirstName" class="form-control" value="@Model.FirstName" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="LastName" class="col-lg-3 control-label">Nom:</label>
+                    <div class="col-lg-8">
+                        <input name="LastName" class="form-control" value="@Model.LastName" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Email"class="col-lg-3 control-label">Email:</label>
+                    <div class="col-lg-8">
+                        <input name="Email" class="form-control" value="@Model.Email" type="text">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="UserName" class="col-md-3 control-label">Pseudo:</label>
+                    <div class="col-md-8">
+                        <input name="UserName" class="form-control" value="@Model.UserName" type="text">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Password" class="col-md-3 control-label">Mot de passe :</label>
+                    <div class="col-md-8">
+                        <input name="Password" class="form-control" value="@Model.Password" type="password">
+                    </div>
+                </div>
+                <fieldset>
+                    <legend>Détails</legend>
+                    <div class="form-group col-md-6">
+                        <label> Pays de résidence</label>
+                        @Html.DropDownList("CountryCode",
+                        new SelectList((System.Collections.IEnumerable)ViewData["CountriesList"], "code", "name", Model.CountryCode))
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Langue parlée</label>
+                        @Html.DropDownList("LanguageCode",
+                        new SelectList((System.Collections.IEnumerable)ViewData["SpokenLang"], "code", "name", Model.LanguageCode))
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="BirthDate">Date de naissance</label>
+                        <input type="date" name="BirthDate" value="@Model.BirthDate" />
+                    </div>
+                    <div class="form-group col-md-12 hidden">
+                        <label for="specify">Veuillez spécifier ce champ</label>
+                        <textarea class="form-control" id="specify" name=""></textarea>
+                    </div>
+                </fieldset>
+              
+                <div class="form-group">
+                    <label class="col-md-3 control-label"></label>
+                    <div class="col-md-8">
+                        <input id="updateBtn" class="btn btn-primary" value="Mettre à jour" type="button">
+                        <span></span>
+                        <input class="btn btn-default" value="Annulez" type="reset">
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>
+<hr>
+
+@section scripts {
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("#updateBtn").on("click", function () {
+            PostDetails();
+        });
+
+
+
+    });
+
+     function PostDetails() {
+            var details = $("#update :input").serialize();
+            $.post('@Url.Action("UpdateUser","Users")', details).done(function (data) {
+                window.location.href = '@Url.Action("Chat","Home")';
+            });
+        }
+</script>
+    
+}

@@ -1,0 +1,71 @@
+﻿@model List<EZChat_App.Models.Users>
+@{
+    ViewBag.Title = "Liste des utilsiateurs";
+    
+
+}
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Pseudo</th>
+            <th scope="col">Envoie d'une demande d'ami</th>
+            <th scope="col">Annulation de la demande</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.UserName</td>
+                <td><button id="@item.UserName" type="button" class="btn btn-success">Envoyez une demande </button></td>
+                <td><button id="@item.UserName" type="button" class="btn btn-danger">Annulez la demande</button></td>
+            </tr>
+        }
+       
+    </tbody>
+</table>
+
+@section scripts{
+    
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        $("button").on("click", function () {
+
+            var userName = this.id;
+
+            //Envoie d'une demande d'ami
+            if ($(this).hasClass("btn-success")) {
+                PostForFriend(userName);
+            }
+            else {
+
+            }
+
+        });
+
+    });
+
+
+    function PostForFriend(username) {
+
+        $.post('@Url.Action("SendFriendRequest", "Users")/' + "?username=" + username).done(function (data) {
+            alert("Invitation envoyée");
+            $("button[id^='"+ username +"'].btn-success").addClass("btn-info").removeClass("btn-success").text("Demande en cours ...")
+        });
+
+    }
+
+    function RemoveFriend(username) {
+        $.post('@Url.Action("CancelFriendRequest", "Users")/' + "?username=" + username).done(function (data) {
+
+            alert("Annulation effectuée");
+        });
+    }
+
+
+</script>    
+    
+    
+}

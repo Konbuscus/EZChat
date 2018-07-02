@@ -1,0 +1,191 @@
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\ApplicationInsights.config
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\EZChat App.dll.config
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\EZChat App.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\EZChat App.pdb
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Antlr3.Runtime.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\DnsClient.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.Agent.Intercept.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.DependencyCollector.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.Web.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.WindowsServer.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.ApplicationInsights.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.Security.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.Web.Infrastructure.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\MongoDB.Bson.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.Core.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.Legacy.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Newtonsoft.Json.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Owin.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Buffers.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.Helpers.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.Mvc.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.Optimization.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.Razor.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.Deployment.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.Razor.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\WebGrease.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\DnsClient.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.Security.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\MongoDB.Bson.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.Core.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.Legacy.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.Helpers.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.Mvc.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.Optimization.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.Razor.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.Deployment.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.Razor.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Antlr3.Runtime.pdb
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Newtonsoft.Json.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.ApplicationInsights.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.DependencyCollector.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.WindowsServer.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.Web.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.Helpers.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.Mvc.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.Optimization.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.Razor.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.WebPages.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.WebPages.Deployment.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.WebPages.Razor.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.csproj.CoreCompileInputs.cache
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.pdb
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Api.Gax.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Auth.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Auth.PlatformServices.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Core.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.PlatformServices.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Translate.v2.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Interactive.Async.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Net.Http.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Security.Cryptography.Algorithms.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Security.Cryptography.Encoding.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Security.Cryptography.Primitives.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Security.Cryptography.X509Certificates.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Api.Gax.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Auth.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Core.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Translate.v2.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\System.Interactive.Async.xml
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.AspNet.SignalR.Core.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.Owin.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.Owin.Host.SystemWeb.resources.dll
+D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.Owin.Security.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.csprojResolveAssemblyReference.cache
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.csproj.CoreCompileInputs.cache
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.pdb
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\ApplicationInsights.config
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\EZChat App.dll.config
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\EZChat App.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\EZChat App.pdb
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Antlr3.Runtime.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\DnsClient.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Api.Gax.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Auth.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Auth.PlatformServices.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Core.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.PlatformServices.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Translate.v2.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.Agent.Intercept.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.DependencyCollector.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.Web.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.WindowsServer.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.ApplicationInsights.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AspNet.SignalR.Core.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.Security.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.Web.Infrastructure.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\MongoDB.Bson.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.Core.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.Legacy.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Newtonsoft.Json.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Owin.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Buffers.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Interactive.Async.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Net.Http.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Runtime.InteropServices.RuntimeInformation.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Security.Cryptography.Algorithms.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Security.Cryptography.Encoding.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Security.Cryptography.Primitives.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Security.Cryptography.X509Certificates.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.Helpers.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.Mvc.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.Optimization.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.Razor.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.Deployment.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.Razor.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\WebGrease.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\DnsClient.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Api.Gax.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Auth.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Core.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Google.Apis.Translate.v2.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AspNet.SignalR.Core.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.Owin.Security.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\MongoDB.Bson.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.Core.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\MongoDB.Driver.Legacy.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Newtonsoft.Json.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Interactive.Async.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.Helpers.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.Mvc.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.Optimization.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.Razor.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.Deployment.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\System.Web.WebPages.Razor.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Antlr3.Runtime.pdb
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.ApplicationInsights.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.DependencyCollector.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.WindowsServer.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\Microsoft.AI.Web.xml
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.AspNet.SignalR.Core.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.AspNet.SignalR.SystemWeb.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.Owin.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.Owin.Host.SystemWeb.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.Owin.Security.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.Helpers.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.Mvc.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.Optimization.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.Razor.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.WebPages.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.WebPages.Deployment.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.WebPages.Razor.resources.dll
