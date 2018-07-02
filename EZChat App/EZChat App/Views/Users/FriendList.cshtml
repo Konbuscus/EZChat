@@ -1,7 +1,59 @@
-﻿
-@{
-    ViewBag.Title = "FriendList";
+﻿@model List<EZChat_App.Models.Users>
+
+<br /><br />
+
+<table id="friendListTable" class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Pseudo</th>
+            <th scope="col">Démarrez une conversation privée</th>
+            <th scope="col">Statut</th>
+            <th scope="col">Supprimez l'ami</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.UserName</td>
+                <td><button id="@user.UserName" type="button" class="btn btn-info">Conversation</button></td>
+                <td>
+                    @if (user.ConnectionStatus)
+                    {
+                        var online = "glyphicon glyphicon-eye-open";
+                        <span class="@online"></span>
+                    }
+                    else
+                    {
+                        var offline = "glyphicon glyphicon-eye-close";
+                        <span class="@offline"></span>
+                    }
+                   
+                </td>
+                <td><button id="@user.UserName" type="button" class="btn btn-danger">Suppression de  l'ami</button></td>
+            </tr>
+        }
+           
+    </tbody>
+</table>
+
+@section scripts{
+    
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+
+
+
+
+
+
+    });
+
+
+
+
+</script>    
+    
 }
-
-<h2>FriendList</h2>
-

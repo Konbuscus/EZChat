@@ -228,7 +228,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\BannedWordsFilterHelper.cs" />
-    <Compile Include="Models\ChatMessage.cs" />
+    <Compile Include="Models\ChatMessages.cs" />
     <Compile Include="Models\Countries.cs" />
     <Compile Include="Models\Lang.cs" />
     <Compile Include="Models\PrivateMessages.cs" />
@@ -286,7 +286,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Chat\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

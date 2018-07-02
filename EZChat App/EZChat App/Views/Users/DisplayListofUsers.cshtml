@@ -1,10 +1,12 @@
 ﻿@model List<EZChat_App.Models.Users>
+    @using EZChat_App.Models;
 @{
-    ViewBag.Title = "Liste des utilsiateurs";
-    
 
+    ViewBag.Title = "Liste des utilsiateurs";
+    var User = Session["User"] as Users;
 }
-<table class="table table-dark">
+<br /><br />
+<table id="userTable"class="table table-dark">
     <thead>
         <tr>
             <th scope="col">Pseudo</th>
@@ -15,10 +17,25 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
+            <tr id="@item.UserName">
                 <td>@item.UserName</td>
-                <td><button id="@item.UserName" type="button" class="btn btn-success">Envoyez une demande </button></td>
-                <td><button id="@item.UserName" type="button" class="btn btn-danger">Annulez la demande</button></td>
+                @if (Session["User"] != null)
+                {
+                    //Vérification des pending request en cours, en fonction de l'username, on met le bouton bleu
+                   
+                    if (User.PendingFriendsRequest.Contains(item._id))
+                    {
+                        <td><button id="@item.UserName" type="button" class="btn btn-info">Demande en cours ... </button></td>
+                    }
+                    else
+                    {
+                        <td><button id="@item.UserName" type="button" class="btn btn-success">Envoyez une demande </button></td>
+                    }
+                }
+                
+                   
+                
+                <td><button disabled id="@item.UserName" type="button" class="btn btn-danger">Annulez la demande</button></td>
             </tr>
         }
        
@@ -30,21 +47,27 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
+        
+        var currentUser = '@User.UserName';     
 
-        $("button").on("click", function () {
+        $("button.btn").on("click", function () {
 
-            var userName = this.id;
+                    var userName = this.id;
 
-            //Envoie d'une demande d'ami
-            if ($(this).hasClass("btn-success")) {
-                PostForFriend(userName);
-            }
-            else {
-
-            }
-
-        });
-
+                    //Envoie d'une demande d'ami
+                    if ($(this).hasClass("btn-success")) {
+                        PostForFriend(userName);
+                    }
+            else if ($(this).hasClass("btn-danger")) {
+                        RemoveFriend(userName);
+                    }
+                    else if ($(this).hasClass("btn-info"))
+                    {
+                        if (currentUser != userName) {
+                            AcceptFriendRequest(userName);
+                        }
+                    }
+                });
     });
 
 
@@ -52,16 +75,26 @@
 
         $.post('@Url.Action("SendFriendRequest", "Users")/' + "?username=" + username).done(function (data) {
             alert("Invitation envoyée");
-            $("button[id^='"+ username +"'].btn-success").addClass("btn-info").removeClass("btn-success").text("Demande en cours ...")
+            $("button[id^='" + username + "'].btn-success").addClass("btn-info").removeClass("btn-success").text("Demande en cours ...");
+            $("button[id^='" + username + "'].btn-danger").attr("disabled", false);
         });
 
     }
 
     function RemoveFriend(username) {
         $.post('@Url.Action("CancelFriendRequest", "Users")/' + "?username=" + username).done(function (data) {
-
             alert("Annulation effectuée");
+            $("button[id^='" + username + "'].btn-info").addClass("btn-success").removeClass("btn-info").text("Envoyez une demande");
         });
+    }
+
+    function AcceptFriendRequest(username) {
+
+        $.post("@Url.Action("AcceptFriendRequest", "Users")/" + "?username=" + username).done(function (data) {
+            alert("Vous avez accepté la demande d'amis");
+            $("#userTable > tr > td[id^='" + username + "']").remove();
+        });
+
     }
 
 

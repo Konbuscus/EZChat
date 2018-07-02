@@ -6,12 +6,12 @@ using System.Web;
 
 namespace EZChat_App.Models
 {
-    public class ChatMessage
+    public class ChatMessages
     {
         public ObjectId _id { get; set; }
         public string message { get; set; }
         public string dateTime { get; set; }
-        public string userId { get; set; }
+        public ObjectId userId { get; set; }
 
     }
 }

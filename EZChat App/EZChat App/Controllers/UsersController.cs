@@ -31,9 +31,17 @@ namespace EZChat_App.Controllers
             //Récupération de tous les utilisateurs dispo en bases excepté l'utilisateur lui même
             Users user = Session["User"] as Users;
             List<Users> usersList = _dbContext.database.GetCollection<Users>("users").FindAll().ToList();
-            usersList.Remove(user);
+            List<Users> finalUserList = new List<Users>();
 
-            return View(usersList);
+            for(int i = 0; i < usersList.Count(); i++)
+            {
+                if(usersList[i].UserName != user.UserName && !user.FriendsListId.Contains(usersList[i]._id))
+                {
+                    finalUserList.Add(usersList[i]);
+                }
+            }
+
+            return View(finalUserList);
 
         }
 
@@ -73,17 +81,45 @@ namespace EZChat_App.Controllers
             _dbContext = new MongoContext();
             Users user = Session["User"] as Users;
             Users userToAsk = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", userName));
-            var update = Update.Pull("users", Query.EQ("PendingFriendsRequest", userToAsk.FriendsListId));
-            var update2 = Update.Pull("users", Query.EQ("PendingFriendsRequest", user.FriendsListId));
+            //user.PendingFriendsRequest.Remove(userToAsk._id);
+            //userToAsk.PendingFriendsRequest.Remove(user._id);
+
+            _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", user._id), null,
+                Update.Pull("PendingFriendsRequest", userToAsk._id));
+
+            _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", userToAsk._id), null,
+                Update.Pull("PendingFriendsRequest", user._id));
 
             return Json(true, JsonRequestBehavior.AllowGet);
 
         }
 
-        public JsonResult AcceptFriendRequest()
+        /// <summary>
+        /// Accept a friend and insert it.
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public JsonResult AcceptFriendRequest(string userName)
         {
+            _dbContext = new MongoContext();
+            Users user = Session["User"] as Users;
+            Users userToAccept = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", userName));
 
-            return Json(false);
+            //Retirer les ID des pendings
+            _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", user._id), null,
+                Update.Pull("PendingFriendsRequest", userToAccept._id));
+            _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", userToAccept._id), null,
+                Update.Pull("PendingFriendsRequest", user._id));
+
+
+            //Ajouter les ID dans les friends list respectivent
+            _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", userToAccept._id), null,
+                   Update.AddToSet("FriendsListId", user._id));
+
+            _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", user._id), null,
+                   Update.AddToSet("FriendsListId", userToAccept._id));
+
+            return Json(true, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult FriendList()

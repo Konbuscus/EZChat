@@ -1,5 +1,6 @@
 ﻿using EZChat_App.App_Start;
 using EZChat_App.Models;
+using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,36 +20,6 @@ namespace EZChat_App.Controllers
             //L'utilisateur peut se connecter sur cette page et visualiser le chat sans pouvoir intéragir avec celui-ci
             //La vue doit afficher le chat.
             return View();
-        }
-
-        /// <summary>
-        /// Inscription de l'utilisateur
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult SignUp()
-        {
-            //Redirection vers formulaire d'inscription
-            return View();
-
-        }
-
-        /// <summary>
-        /// Connexion de l'utilisateur
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult SignIn()
-        {
-            //Redirection vers un formulaire de login
-            return View();
-        }
-
-        public JsonResult LoggingAction(string username, string password)
-        {
-            //On vérifique que l'utilisateur existe dans la base
-            //Si il existe et que les données sont correctes, on le redirige sur la page d'accueil avec le tchat (côté client JS)
-            //Possibilité d'intéragir avec le tchat
-            return Json(true, JsonRequestBehavior.AllowGet);
-
         }
 
         public ActionResult About()
@@ -72,19 +43,44 @@ namespace EZChat_App.Controllers
 
         public JsonResult InsertMessagesInNoSQL(string nickName, string message)
         {
+            _dbContext = new MongoContext();
             DateTime now = DateTime.Now;
             //Prepare to Insert
-            var ChatMessage = new ChatMessage()
+            Users user = Session["User"] as Users;
+            if(user == null)
+            {
+                user = new Users()
+                {
+                    UserName = "Anonymous"
+                    //Si anonyme on enregistre rien
+                };
+            }
+
+            var ChatMessage = new ChatMessages()
             {
                 message = message,
                 dateTime = now.ToString(),
-                userId = "", //Methode pour récupérer l'id de l'utilisateur en fonction de son pseudonyme
+                userId = user._id
             };
-
-
-            // PAIR PROGRAMMING NE PAS TOUCHER var filtered = Helpers.BannedWordsFilterHelper.ReplaceBadWords(message);
-           // _dbContext.database.GetCollection<ChatMessage>("Users").Insert(ChatMessage);
+            //Insertion en base du chat
+            _dbContext.database.GetCollection<ChatMessages>("ChatMessages").Insert(ChatMessage);
             return Json(true, JsonRequestBehavior.AllowGet);
+        }
+
+        /// <summary>
+        /// Permet la déconnexion
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Disconnect()
+        {
+            Users user = Session["User"] as Users;
+            Session["User"] = null;
+            _dbContext = new MongoContext();
+
+            //Mis à jour du statut
+            _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", user._id), null, Update.Set("ConnectionStatus", false));
+
+            return RedirectToAction("Connect", "Signup");
         }
 
 

@@ -1,6 +1,7 @@
-﻿@{
+﻿@using EZChat_App.Models;
+@{
     ViewBag.Title = "Chat";
-    
+    Users currentUser = Session["User"] as Users;
 }
 @section head{
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/chat.css")">
@@ -24,16 +25,25 @@
     <!--SignalR script to update the chat page and send messages.-->
     <script>
         $(function () {
-            // Reference the auto-generated proxy for the hub.
+            var currentUserName = "Anonymous"
+
+            currentUserName = '@(currentUser == null ? "Anonymous" : currentUser.UserName)'
+            // Reference the auto-generated proxy for the hub
+            
             var chat = $.connection.chatHub;
             // Create a function that the hub can call back to display messages.
-            chat.client.addNewMessageToPage = function (name, message) {
+            chat.client.addNewMessageToPage = function (date, name, message) {
                 // Add the message to the page.
-                $('#discussion').append('<li><strong>' + htmlEncode(name)
+                $('#discussion').append('<li><strong>' + htmlEncode(date) + " " +  htmlEncode(name)
                     + '</strong>: ' + htmlEncode(message) + '</li>');
             };
             // Get the user name and store it to prepend to messages.
-            $('#displayname').val(prompt('Enter your name:', ''));
+            if (currentUserName == "Anonymous") {
+                $('#displayname').val(prompt('Enter your name:', ''));
+            }
+            else {
+                $('#displayname').val(currentUserName);
+            }
             // Set initial focus to message input box.
             $('#message').focus();
             // Start the connection.
@@ -41,7 +51,7 @@
                 $('#sendmessage').click(function () {
                     // Call the Send method on the hub.
                     if ($("#message").val() != "") {
-                        chat.server.send($('#displayname').val(), $('#message').val());
+                        chat.server.send('@DateTime.Now',$('#displayname').val(), $('#message').val());
                         postInBase($('#displayname').val(), $('#message').val())
                     }
                     // Clear text box and reset focus for next comment.
