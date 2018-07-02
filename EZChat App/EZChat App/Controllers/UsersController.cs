@@ -122,13 +122,34 @@ namespace EZChat_App.Controllers
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
+        /// <summary>
+        /// Deleting friends
+        /// </summary>
+        /// <param name="userName"></param>
+        /// <returns></returns>
+        public JsonResult DeleteFriends(string userName)
+        {
+            _dbContext = new MongoContext();
+            Users user = Session["User"] as Users;
+            Users usertToReject = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", userName));
+
+            //Retirer les ID des listes d'amis
+            _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", user._id), null,
+                Update.Pull("PendingFriendsRequest", usertToReject._id));
+            _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", usertToReject._id), null,
+                Update.Pull("PendingFriendsRequest", user._id));
+
+            return Json(true, JsonRequestBehavior.AllowGet);
+
+        }
+
         public ActionResult FriendList()
         {
             _dbContext = new MongoContext();
             Users user = Session["User"] as Users;
             List<Users> friendsList = _dbContext.database.GetCollection<Users>("users").FindAll().Where(p => p.FriendsListId.Contains(user._id)).ToList();
-
-            return View(friendsList);
+            List<Users> emptyFriendList = new List<Users>();
+            return View(friendsList == null ? emptyFriendList : friendsList);
         }
 
 

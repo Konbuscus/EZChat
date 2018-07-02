@@ -14,7 +14,7 @@
     <tbody>
         @foreach (var user in Model)
         {
-            <tr>
+            <tr id="@user.UserName">
                 <td>@user.UserName</td>
                 <td><button id="@user.UserName" type="button" class="btn btn-info">Conversation</button></td>
                 <td>
@@ -44,15 +44,25 @@
     $(document).ready(function () {
 
 
-
+        $("button.btn-danger").on("click", function () {
+            var userName = this.id;
+            DeleteFriend(userName);
+        });
 
 
 
 
     });
 
+    //Remove a friend
+    function DeleteFriend(username) {
 
+        $.post("@Url.Action("DeleteFriends", "Users")/" + "?username=" + username).done(function (data) {
+            $("tr[id^='" + username + "']").remove();
+            alert("Ami supprimé");
+        });
 
+    }
 
 </script>    
     

@@ -92,7 +92,7 @@
 
         $.post("@Url.Action("AcceptFriendRequest", "Users")/" + "?username=" + username).done(function (data) {
             alert("Vous avez accepté la demande d'amis");
-            $("#userTable > tr > td[id^='" + username + "']").remove();
+            $("tr[id^='" + username + "']").remove();
         });
 
     }
