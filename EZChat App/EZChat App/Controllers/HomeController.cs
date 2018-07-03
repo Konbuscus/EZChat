@@ -47,7 +47,8 @@ namespace EZChat_App.Controllers
                 ViewData["User"] = user;
 
             }
-            return View();
+            List<ChatMessages> chatMessageList = _dbContext.database.GetCollection<ChatMessages>("ChatMessages").FindAll().ToList();
+            return View(chatMessageList);
         }
 
         public JsonResult InsertMessagesInNoSQL(string nickName, string message)
@@ -58,10 +59,10 @@ namespace EZChat_App.Controllers
             var userId = Session["User"];
             if(userId != null)
             {
-                Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
-                if (user == null)
+                Users users = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
+                if (users == null)
                 {
-                    user = new Users()
+                    users = new Users()
                     {
                         UserName = "Anonymous"
                         //Si anonyme on enregistre rien
@@ -69,12 +70,12 @@ namespace EZChat_App.Controllers
                 }
             }
 
-
+            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", nickName));
             var ChatMessage = new ChatMessages()
             {
                 message = message,
                 dateTime = now.ToString(),
-                userId = (ObjectId)userId
+                username = user.UserName
             };
             //Insertion en base du chat
             _dbContext.database.GetCollection<ChatMessages>("ChatMessages").Insert(ChatMessage);
