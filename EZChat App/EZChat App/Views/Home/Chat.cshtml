@@ -17,7 +17,7 @@
     <ul id="discussion">
         @foreach(var message in Model)
         {
-            <li>@message.dateTime @message.username  @message.message</li>
+            <li>@message.dateTime @message.username :  @message.message</li>
         }
     </ul>
 </div>
@@ -57,11 +57,12 @@
                 $('#sendmessage').click(function () {
                     // Call the Send method on the hub.
                     if ($("#message").val() != "") {
-                        chat.server.send('@DateTime.Now',$('#displayname').val(), $('#message').val());
-                        postInBase($('#displayname').val(), $('#message').val())
+                        chat.server.send('@DateTime.Now', $('#displayname').val(), $('#message').val())
+                        //postInBase($('#displayname').val(), $('#message').val());
                     }
                     // Clear text box and reset focus for next comment.
                     $('#message').val('').focus();
+                    
                 });
             });
         });

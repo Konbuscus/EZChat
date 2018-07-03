@@ -93,10 +93,6 @@ D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.AspNet.Signal
 D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.Owin.resources.dll
 D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.Owin.Host.SystemWeb.resources.dll
 D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\bin\fr\Microsoft.Owin.Security.resources.dll
-D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.csprojResolveAssemblyReference.cache
-D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.csproj.CoreCompileInputs.cache
-D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.dll
-D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.pdb
 D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\ApplicationInsights.config
 D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\EZChat App.dll.config
 D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\EZChat App.dll
@@ -189,3 +185,7 @@ D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.We
 D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.WebPages.resources.dll
 D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.WebPages.Deployment.resources.dll
 D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\bin\fr\System.Web.WebPages.Razor.resources.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.csprojResolveAssemblyReference.cache
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.csproj.CoreCompileInputs.cache
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.dll
+D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\obj\Debug\EZChat App.pdb

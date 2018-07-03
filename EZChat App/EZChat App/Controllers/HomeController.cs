@@ -57,28 +57,33 @@ namespace EZChat_App.Controllers
             DateTime now = DateTime.Now;
             //Prepare to Insert
             var userId = Session["User"];
-            if(userId != null)
+            if(userId == null)
             {
-                Users users = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
-                if (users == null)
-                {
-                    users = new Users()
+                //Users users = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
+                
+                    Users users = new Users()
                     {
                         UserName = "Anonymous"
                         //Si anonyme on enregistre rien
                     };
-                }
+                    return Json(true, JsonRequestBehavior.AllowGet);
+                
             }
-
-            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", nickName));
-            var ChatMessage = new ChatMessages()
+            else
             {
-                message = message,
-                dateTime = now.ToString(),
-                username = user.UserName
-            };
-            //Insertion en base du chat
-            _dbContext.database.GetCollection<ChatMessages>("ChatMessages").Insert(ChatMessage);
+                Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", nickName));
+                var ChatMessage = new ChatMessages()
+                {
+                    message = message,
+                    dateTime = now.ToString(),
+                    username = user.UserName
+                };
+                //Insertion en base du chat
+                _dbContext.database.GetCollection<ChatMessages>("ChatMessages").Insert(ChatMessage);
+            }
+            
+               
+            
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
@@ -88,10 +93,11 @@ namespace EZChat_App.Controllers
         /// <returns></returns>
         public ActionResult Disconnect()
         {
+            _dbContext = new MongoContext();
             var userId = Session["User"];
             Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
             Session["User"] = null;
-            _dbContext = new MongoContext();
+            
 
             //Mis à jour du statut
             _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", user._id), null, Update.Set("ConnectionStatus", false));
