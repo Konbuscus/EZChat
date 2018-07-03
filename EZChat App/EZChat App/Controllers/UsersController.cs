@@ -15,12 +15,24 @@ namespace EZChat_App.Controllers
     {
         MongoContext _dbContext;
         // GET: Modifier profile
-        public ActionResult Index()
+        public ActionResult Index(string username)
         {
             _dbContext = new MongoContext();
-            var user = Session["User"];
+            object userId;
+            bool isForDisplayPurpose = false;
+            if (string.IsNullOrEmpty(username))
+            {
+                userId = Session["User"];
+            }
+            else
+            {
+                userId = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", username))._id;
+                isForDisplayPurpose = true;
+            }
+            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
             ViewData["CountriesList"] = _dbContext.database.GetCollection<Countries>("Countries").FindAll().ToList();
             ViewData["SpokenLang"] = _dbContext.database.GetCollection<Lang>("Lang").FindAll().ToList();
+            ViewData["ForDisplayOnly"] = isForDisplayPurpose;
             return View(user);
         }
 
@@ -29,7 +41,9 @@ namespace EZChat_App.Controllers
         {
             _dbContext = new MongoContext();
             //Récupération de tous les utilisateurs dispo en bases excepté l'utilisateur lui même
-            Users user = Session["User"] as Users;
+            var userId = Session["User"];
+            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
+
             List<Users> usersList = _dbContext.database.GetCollection<Users>("users").FindAll().ToList();
             List<Users> finalUserList = new List<Users>();
 
@@ -40,7 +54,7 @@ namespace EZChat_App.Controllers
                     finalUserList.Add(usersList[i]);
                 }
             }
-
+            ViewData["User"] = user;
             return View(finalUserList);
 
         }
@@ -54,9 +68,10 @@ namespace EZChat_App.Controllers
         public JsonResult SendFriendRequest(string userName)
         {
             _dbContext = new MongoContext();
-            Users user = Session["User"] as Users;
+            var userId = Session["User"];
+            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
 
-            if(user != null)
+            if (user != null)
             {
                 Users userToAsk = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", userName));
                 //userToAsk.PendingFriendsRequest.Add(user._id);
@@ -68,6 +83,7 @@ namespace EZChat_App.Controllers
                     Update.AddToSet("PendingFriendsRequest", userToAsk._id));
                 return Json(true, JsonRequestBehavior.AllowGet);
             }
+            
             return Json(false, JsonRequestBehavior.AllowGet); 
         }
 
@@ -79,7 +95,8 @@ namespace EZChat_App.Controllers
         public JsonResult CancelFriendRequest(string userName)
         {
             _dbContext = new MongoContext();
-            Users user = Session["User"] as Users;
+            var userId = Session["User"];
+            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
             Users userToAsk = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", userName));
             //user.PendingFriendsRequest.Remove(userToAsk._id);
             //userToAsk.PendingFriendsRequest.Remove(user._id);
@@ -102,7 +119,8 @@ namespace EZChat_App.Controllers
         public JsonResult AcceptFriendRequest(string userName)
         {
             _dbContext = new MongoContext();
-            Users user = Session["User"] as Users;
+            var userId = Session["User"];
+            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
             Users userToAccept = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", userName));
 
             //Retirer les ID des pendings
@@ -130,14 +148,15 @@ namespace EZChat_App.Controllers
         public JsonResult DeleteFriends(string userName)
         {
             _dbContext = new MongoContext();
-            Users user = Session["User"] as Users;
+            var userId = Session["User"];
+            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
             Users usertToReject = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("UserName", userName));
 
             //Retirer les ID des listes d'amis
             _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", user._id), null,
-                Update.Pull("PendingFriendsRequest", usertToReject._id));
+                Update.Pull("FriendsListId", usertToReject._id));
             _dbContext.database.GetCollection<Users>("users").FindAndModify(Query.EQ("_id", usertToReject._id), null,
-                Update.Pull("PendingFriendsRequest", user._id));
+                Update.Pull("FriendsListId", user._id));
 
             return Json(true, JsonRequestBehavior.AllowGet);
 
@@ -146,7 +165,8 @@ namespace EZChat_App.Controllers
         public ActionResult FriendList()
         {
             _dbContext = new MongoContext();
-            Users user = Session["User"] as Users;
+            var userId = Session["User"];
+            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
             List<Users> friendsList = _dbContext.database.GetCollection<Users>("users").FindAll().Where(p => p.FriendsListId.Contains(user._id)).ToList();
             List<Users> emptyFriendList = new List<Users>();
             return View(friendsList == null ? emptyFriendList : friendsList);
@@ -166,7 +186,8 @@ namespace EZChat_App.Controllers
         public JsonResult UpdateUser(Users user)
         {
             _dbContext = new MongoContext();
-            Users UserToEdit = Session["User"] as Users;
+            var userId = Session["User"];
+            Users UserToEdit = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
             try
             {
                 _dbContext.database.GetCollection<Users>("users").FindAndModify(

@@ -1,7 +1,7 @@
 ﻿@using EZChat_App.Models;
 @{
     ViewBag.Title = "Chat";
-    Users currentUser = Session["User"] as Users;
+    var currentUser = ViewData["User"] as Users; 
 }
 @section head{
 <link rel="stylesheet" type="text/css" href="@Url.Content("~/chat.css")">

@@ -11,7 +11,7 @@ using System.Web;
 
 namespace EZChat_App.Helpers
 {
-    public static  class BannedWordsFilterHelper
+    public   class BannedWordsFilterHelper
     {
         private static readonly HttpClient client = new HttpClient();
         //Yandex translation services
@@ -70,8 +70,7 @@ namespace EZChat_App.Helpers
             List<string> TranslatedString = new List<string>();
             for(var i = 0; i < cutMessage.Length; i++)
             {
-                var lul = Translate(cutMessage[i]);
-                TranslatedString.Add(lul.Result);
+                TranslatedString.Add(cutMessage[i]);
             }
 
             //Pour chaque mot, on vérifie en quelle langue il est, 
@@ -79,23 +78,29 @@ namespace EZChat_App.Helpers
             //Si pas en anglais, requête vers google translate pour le traduire en anglais
             string strReplace = "";
             //Parcourir le fichier text pour trouver le mot.
-            foreach(var line in File.ReadAllLines(@"D:\EZChat\ezchat\EZChat App\EZChat App\EZChat App\BannedWord.txt"))
+            foreach(var line in File.ReadAllLines(@"D:\Copie fonctionnelle EZ CHAT\EZChat App\EZChat App\EZChat App\BannedWord.txt"))
             {
                 foreach(var cut in TranslatedString)
                 {
                     //Le mot est en anglais, et on va générer un nouveau mot
-                    if(line == cut)
+                    if(line == cut.ToLower())
                     {
-                        for(int i = 0; i <= line.Length; i++)
+                        for(int i = 0; i <= cut.ToLower().Length; i++)
                         {
                             strReplace += "*";
                         }
                         //return strReplace;
+                        if (message.Contains(cut.ToLower()))
+                        {
+                            message = message.Replace(cut.ToLower(), strReplace);
+                        }
                     }
+                    
                     
                 }
             }
-            return strReplace;
+
+            return message;
         }
 
 

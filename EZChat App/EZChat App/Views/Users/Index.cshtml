@@ -1,5 +1,11 @@
 ﻿@model EZChat_App.Models.Users
 
+@{ 
+    var pictureProfile = string.IsNullOrEmpty(Model.PictureProfile) ? "//placehold.it/100" : Model.PictureProfile;
+    var isForDisplayPurpose = (bool)ViewData["ForDisplayOnly"] ? true : false;
+    
+}
+
 @section head{
 
 
@@ -7,16 +13,18 @@
 }
 <br /><br />
 <div id="update" class="container">
-    <h1>Edition du profil</h1>
+    <h1>@(isForDisplayPurpose ? "Profile de " + Model.UserName : "Edition du profile" )</h1>
     <hr>
     <div class="row">
         <!-- left column -->
         <div class="col-md-3">
             <div class="text-center">
-                <img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+                <img src="@pictureProfile" class="avatar img-circle" alt="avatar">
                 <h6>Changez d'image</h6>
-
-                <input name="PictureProfile" class="form-control" value="" type="file">
+                @if (!isForDisplayPurpose)
+                {
+                    <input name="PictureProfile" class="form-control" value="@pictureProfile" type="file">
+                }
             </div>
         </div>
 
@@ -34,64 +42,71 @@
                 <div class="form-group">
                     <label for="FirstName" class="col-lg-3 control-label">Prénom:</label>
                     <div class="col-lg-8">
-                        <input name="FirstName" class="form-control" value="@Model.FirstName" type="text">
+                        <input name="FirstName" class="form-control" value="@Model.FirstName" type="text" @(isForDisplayPurpose ? "disabled='disabled'" : "")>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="LastName" class="col-lg-3 control-label">Nom:</label>
                     <div class="col-lg-8">
-                        <input name="LastName" class="form-control" value="@Model.LastName" type="text">
+                        <input name="LastName" class="form-control" value="@Model.LastName" type="text" @(isForDisplayPurpose ? "disabled='disabled'" : "")>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="Email"class="col-lg-3 control-label">Email:</label>
                     <div class="col-lg-8">
-                        <input name="Email" class="form-control" value="@Model.Email" type="text">
+                        <input name="Email" class="form-control" value="@Model.Email" type="text" @(isForDisplayPurpose ? "disabled='disabled'" : "")>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label for="UserName" class="col-md-3 control-label">Pseudo:</label>
                     <div class="col-md-8">
-                        <input name="UserName" class="form-control" value="@Model.UserName" type="text">
+                        <input name="UserName" class="form-control" value="@Model.UserName" type="text" disabled="disabled">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="Password" class="col-md-3 control-label">Mot de passe :</label>
-                    <div class="col-md-8">
-                        <input name="Password" class="form-control" value="@Model.Password" type="password">
+                @if (!isForDisplayPurpose)
+                {
+                    <div class="form-group">
+                        <label for="Password" class="col-md-3 control-label">Mot de passe :</label>
+                        <div class="col-md-8">
+                            <input name="Password" class="form-control" value="@Model.Password" type="password">
+                        </div>
                     </div>
-                </div>
+                }
+               
                 <fieldset>
                     <legend>Détails</legend>
                     <div class="form-group col-md-6">
                         <label> Pays de résidence</label>
                         @Html.DropDownList("CountryCode",
-                        new SelectList((System.Collections.IEnumerable)ViewData["CountriesList"], "code", "name", Model.CountryCode))
+                        new SelectList((System.Collections.IEnumerable)ViewData["CountriesList"], "code", "name", Model.CountryCode), isForDisplayPurpose ? new { @disabled = "disabled" } : null)
                     </div>
                     <div class="form-group col-md-6">
                         <label>Langue parlée</label>
                         @Html.DropDownList("LanguageCode",
-                        new SelectList((System.Collections.IEnumerable)ViewData["SpokenLang"], "code", "name", Model.LanguageCode))
+                        new SelectList((System.Collections.IEnumerable)ViewData["SpokenLang"], "code", "name", Model.LanguageCode), isForDisplayPurpose ? new { @disabled = "disabled" } : null)
                     </div>
                     <div class="form-group col-md-6">
                         <label for="BirthDate">Date de naissance</label>
-                        <input type="date" name="BirthDate" value="@Model.BirthDate" />
+                        <input type="date" name="BirthDate" value="@Model.BirthDate"   @(isForDisplayPurpose ? "disabled='disabled'" : "") />
                     </div>
                     <div class="form-group col-md-12 hidden">
                         <label for="specify">Veuillez spécifier ce champ</label>
                         <textarea class="form-control" id="specify" name=""></textarea>
                     </div>
                 </fieldset>
-              
-                <div class="form-group">
-                    <label class="col-md-3 control-label"></label>
-                    <div class="col-md-8">
-                        <input id="updateBtn" class="btn btn-primary" value="Mettre à jour" type="button">
-                        <span></span>
-                        <input class="btn btn-default" value="Annulez" type="reset">
+                @if (!isForDisplayPurpose)
+                {
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <input id="updateBtn" class="btn btn-primary" value="Mettre à jour" type="button">
+                            <span></span>
+                            <input class="btn btn-default" value="Annulez" type="reset">
+                        </div>
                     </div>
-                </div>
+                }
+                
                 
             </form>
         </div>

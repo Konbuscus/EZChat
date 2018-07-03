@@ -12,7 +12,8 @@ namespace EZChat_App
     {
         public void Send(string date, string nickname, string message)
         {
-            Clients.All.addNewMessageToPage(date, nickname, message);
+            var finalMessage = EZChat_App.Helpers.BannedWordsFilterHelper.ReplaceBadWords(message);
+            Clients.All.addNewMessageToPage(date, nickname, finalMessage);
 
         }
     }

@@ -78,7 +78,7 @@ namespace EZChat_App.Controllers
                     if(userConnect.UserName == username && userConnect.Password == password)
                     {
                         _dbContext.database.GetCollection<Users>("users").Update(Query.EQ("_id", userConnect._id), Update.Set("ConnectionStatus", true));
-                        Session["User"] = userConnect;
+                        Session["User"] = userConnect._id;
                         return Json(true, JsonRequestBehavior.AllowGet);
                     }
                 }

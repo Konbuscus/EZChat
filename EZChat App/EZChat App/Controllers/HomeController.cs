@@ -1,5 +1,6 @@
 ﻿using EZChat_App.App_Start;
 using EZChat_App.Models;
+using MongoDB.Bson;
 using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,14 @@ namespace EZChat_App.Controllers
 
         public ActionResult Chat()
         {
+            _dbContext = new MongoContext();
+            var userId = Session["User"];
+            if(userId != null)
+            {
+                Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
+                ViewData["User"] = user;
+
+            }
             return View();
         }
 
@@ -46,21 +55,26 @@ namespace EZChat_App.Controllers
             _dbContext = new MongoContext();
             DateTime now = DateTime.Now;
             //Prepare to Insert
-            Users user = Session["User"] as Users;
-            if(user == null)
+            var userId = Session["User"];
+            if(userId != null)
             {
-                user = new Users()
+                Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
+                if (user == null)
                 {
-                    UserName = "Anonymous"
-                    //Si anonyme on enregistre rien
-                };
+                    user = new Users()
+                    {
+                        UserName = "Anonymous"
+                        //Si anonyme on enregistre rien
+                    };
+                }
             }
+
 
             var ChatMessage = new ChatMessages()
             {
                 message = message,
                 dateTime = now.ToString(),
-                userId = user._id
+                userId = (ObjectId)userId
             };
             //Insertion en base du chat
             _dbContext.database.GetCollection<ChatMessages>("ChatMessages").Insert(ChatMessage);
@@ -73,7 +87,8 @@ namespace EZChat_App.Controllers
         /// <returns></returns>
         public ActionResult Disconnect()
         {
-            Users user = Session["User"] as Users;
+            var userId = Session["User"];
+            Users user = _dbContext.database.GetCollection<Users>("users").FindOne(Query.EQ("_id", (ObjectId)userId));
             Session["User"] = null;
             _dbContext = new MongoContext();
 

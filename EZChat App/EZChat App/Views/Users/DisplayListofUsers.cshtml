@@ -3,7 +3,7 @@
 @{
 
     ViewBag.Title = "Liste des utilsiateurs";
-    var User = Session["User"] as Users;
+    var User = ViewData["User"] as Users;
 }
 <br /><br />
 <table id="userTable"class="table table-dark">
@@ -18,8 +18,8 @@
         @foreach (var item in Model)
         {
             <tr id="@item.UserName">
-                <td>@item.UserName</td>
-                @if (Session["User"] != null)
+                <td><a id="@item.UserName" class="clickable">@item.UserName</a></td>
+                @if (User != null)
                 {
                     //Vérification des pending request en cours, en fonction de l'username, on met le bouton bleu
                    
@@ -68,6 +68,12 @@
                         }
                     }
                 });
+    });
+
+    $("a.clickable").on("click", function () {
+
+        var userName = this.id;
+        window.location.href = "@Url.Action("Index","Users")/" + "?username=" + userName;
     });
 
 
