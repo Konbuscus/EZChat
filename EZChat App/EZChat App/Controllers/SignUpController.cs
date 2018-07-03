@@ -81,6 +81,11 @@ namespace EZChat_App.Controllers
                         Session["User"] = userConnect._id;
                         return Json(true, JsonRequestBehavior.AllowGet);
                     }
+                    else
+                    {
+                        //Pas d'utilisateur trouvée
+                        return Json(false, JsonRequestBehavior.AllowGet);
+                    }
                 }
             }
             return Json(false, JsonRequestBehavior.AllowGet);

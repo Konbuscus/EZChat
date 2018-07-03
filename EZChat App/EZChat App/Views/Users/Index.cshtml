@@ -13,7 +13,7 @@
 }
 <br /><br />
 <div id="update" class="container">
-    <h1>@(isForDisplayPurpose ? "Profile de " + Model.UserName : "Edition du profile" )</h1>
+    <h1>@(isForDisplayPurpose ? "Profil de " + Model.UserName : "Edition du profil" )</h1>
     <hr>
     <div class="row">
         <!-- left column -->
@@ -105,6 +105,12 @@
                             <input class="btn btn-default" value="Annulez" type="reset">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-8">
+                            <input id="deleteBtn" class="btn btn-danger" value="Supprimer le profile" type="button">
+                        </div>
+                    </div>
                 }
                 
                 
@@ -123,6 +129,11 @@
             PostDetails();
         });
 
+        $("#deleteBtn").on("click", function () {
+
+            RemoveProfile();
+        });
+
 
 
     });
@@ -132,7 +143,15 @@
             $.post('@Url.Action("UpdateUser","Users")', details).done(function (data) {
                 window.location.href = '@Url.Action("Chat","Home")';
             });
-        }
+    }
+
+     function RemoveProfile() {
+         $.post("@Url.Action("RemoveProfile","Users")").done(function (data) {
+             alert("Proil supprimé, retour à la page de connexion ");
+             window.location.href = '@Url.Action("Connect","Signup")';
+
+         });
+     }
 </script>
     
 }

@@ -162,6 +162,27 @@ namespace EZChat_App.Controllers
 
         }
 
+        /// <summary>
+        /// Suppression du profil
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult RemoveProfile()
+        {
+
+            _dbContext = new MongoContext();
+            var userId = Session["User"];
+
+            //Suppresison de l'utilisateur
+            _dbContext.database.GetCollection<Users>("users").Remove(Query.EQ("_id", (ObjectId)userId));
+
+            //Vidange Session
+            Session["User"] = null;
+
+            //Redirection sur la page de connexion
+            return Json(true, JsonRequestBehavior.AllowGet);
+
+        }
+
         public ActionResult FriendList()
         {
             _dbContext = new MongoContext();
